@@ -9,6 +9,7 @@
         <h5 class="section-title ff-secondary text-start text-primary fw-normal">Register</h5>
         <h1 class="text-white mb-4">Register for a new user</h1>
         <form method="POST" action="{{ route('register') }}" class="col-md-12">
+            @csrf
             <div class="row g-3">
                 <div class="">
                     <div class="form-floating">
