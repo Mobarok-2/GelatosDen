@@ -55,5 +55,18 @@ class FoodController extends Controller
         return view('foods.cart', compact('cartItems', 'price'));
 
 
+    }   
+     public function deleteCartItem($id) {
+
+        // delete cart items
+        $deleteItem = Cart::where('user_id', Auth::user()->id)->where('food_id', $id);
+
+        $deleteItem->delete();
+
+        if($deleteItem) {
+            return redirect()->route('food.display.cart')->with([ 'delete' => 'Item removed from cart successfully' ]);
+        }
+
+
     } 
 }

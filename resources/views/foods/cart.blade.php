@@ -15,6 +15,11 @@
 </div>
 <!-- Navbar & Hero End -->
 
+<div class="container">
+    @if(Session::has('delete'))
+        <p class="alert {{ Session::get('alert-class', 'alert-success') }}">{{ Session::get('delete') }}</p>
+    @endif
+</div>
 
 <!-- Service Start -->
 <div class="container">
@@ -36,7 +41,7 @@
                             <th><img width="60px" height="60px" src="{{ asset('assets/img/'.$food->image.'')}}"></th>
                             <td>{{ $food->name }}</td>
                             <td>$ {{ $food->price }}</td>
-                            <td><a class="btn btn-danger text-white">delete</td>
+                            <td><a href="{{ route('food.delete.cart', $food->food_id) }}" class="btn btn-danger text-white">delete</td>
                         </tr>
                     @endforeach
                 @else
