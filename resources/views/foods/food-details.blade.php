@@ -50,9 +50,11 @@
                             <input type="hidden" name="image" value="{{ $foodItem->image }}">
                             <input type="hidden" name="price" value="{{ $foodItem->price }}">
                             
-
-                            <button type="submit" name="submit" class="btn btn-primary py-3 px-5 mt-2">Add to Cart</button>
-
+                            @if($cartVerifing > 0) 
+                                <button class="btn btn-primary py-3 px-5 mt-2" disabled>Already in Cart</button>
+                            @else
+                                <button type="submit" name="submit" class="btn btn-primary py-3 px-5 mt-2">Add to Cart</button>
+                            @endif
                         </form>
                     </div>
                 </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 Use App\Models\Food\Food;
 Use App\Models\Food\Cart;
+Use Auth;
 class FoodController extends Controller
 {
     
@@ -16,7 +17,12 @@ class FoodController extends Controller
 
         $foodItem = Food::find($id);
 
-        return view('foods.food-details', compact('foodItem'));
+        //verify if food item exists
+        
+        $cartVerifing = Cart::where('food_id', $id)
+        ->where('user_id', Auth::user()->id)->count();
+
+        return view('foods.food-details', compact('foodItem', 'cartVerifing'));
 
 
     } 
