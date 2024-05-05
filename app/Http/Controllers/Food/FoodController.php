@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 Use App\Models\Food\Food;
 Use App\Models\Food\Cart;
 Use Auth;
+Use Session;
 class FoodController extends Controller
 {
     
@@ -73,4 +74,23 @@ class FoodController extends Controller
 
 
     } 
+
+    public function prepareCheckout(Request $request) {
+        
+        $value = $request->price;
+
+        $price = Session::put('price', $value);
+
+        $newPrice = Session::get('price');
+
+            if($newPrice > 0) {
+                return redirect()->route('foods.checkout', compact('price'));
+            }
+    } 
+
+    public function checkout() {
+       
+            return view('foods.checkout');
+          
+    }
 }

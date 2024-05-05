@@ -55,7 +55,11 @@
             @if($price == 0)
                 <button type="button" class="btn btn-primary py-2 top-0 end-0 mt-2 me-2" disabled>Checkout</button>
             @else
-                <button type="button" class="btn btn-primary py-2 top-0 end-0 mt-2 me-2">Checkout</button>
+                <form method="POST" action="{{ route('prepare.checkout') }}">
+                    @csrf
+                    <input type="text" value="{{ $price }}" name="price">
+                    <button type="submit" name="submit" class="btn btn-primary py-2 top-0 end-0 mt-2 me-2">Checkout</button>
+                </form>
             @endif
         </div>
     </div>
