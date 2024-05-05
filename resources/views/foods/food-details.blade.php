@@ -14,6 +14,11 @@
         </div>
     </div>
 
+    <div class="container">
+        @if(Session::has('success'))
+            <p class="alert {{ Session::get('alert-class', 'alert-success') }}">{{ Session::get('success') }}</p>
+        @endif
+    </div>
             <!-- Service Start -->
             <div class="container-xxl py-5">
             <div class="container">

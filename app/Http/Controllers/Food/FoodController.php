@@ -30,7 +30,9 @@ class FoodController extends Controller
             'price' => $request->price,
         ]);
 
-        echo "Item added to cart successfully";
+        if($cart) {
+            return redirect()->route('food.details', $id)->with([ 'success' => 'Item added to cart successfully' ]);
+        }
 
 
     }
