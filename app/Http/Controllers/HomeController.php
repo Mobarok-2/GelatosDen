@@ -24,9 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $brownieItems = Food::select()->take(4)->where('category', 'brownie')->get();
-        $iceCreamItems = Food::select()->take(4)->where('category', 'icecream')->get();
-        $otherItems = Food::select()->take(4)->where('category', 'other')->get();
+        $brownieItems = Food::select()->take(4)->where('category', 'brownie')->orderBy('id', 'desc')->get();
+        $iceCreamItems = Food::select()->take(4)->where('category', 'icecream')->orderBy('id', 'desc')->get();
+        $otherItems = Food::select()->take(4)->where('category', 'other')->orderBy('id', 'desc')->get();
         
         return view('home', compact('brownieItems', 'iceCreamItems', 'otherItems'));
     }
