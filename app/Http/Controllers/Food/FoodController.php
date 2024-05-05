@@ -45,10 +45,14 @@ class FoodController extends Controller
 
     public function displayCartItem() {
 
-        
+        // display cart items
         $cartItems = Cart::where('user_id', Auth::user()->id)->get();
 
-        return view('foods.cart', compact('cartItems'));
+        // display total price
+        $price = Cart::where('user_id', Auth::user()->id)->sum('price');
+
+
+        return view('foods.cart', compact('cartItems', 'price'));
 
 
     } 

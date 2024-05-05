@@ -46,7 +46,7 @@
             </tbody>
           </table>
           <div class="position-relative mx-auto" style="max-width: 400px; padding-left: 679px;">
-            <p style="margin-left: -7px;" class="w-19 py-3 ps-4 pe-5" type="text"> Total: $100</p>
+            <p style="margin-left: -7px;" class="w-19 py-3 ps-4 pe-5" type="text"> Total: ${{ $price }}</p>
             <button type="button" class="btn btn-primary py-2 top-0 end-0 mt-2 me-2">Checkout</button>
         </div>
     </div>
