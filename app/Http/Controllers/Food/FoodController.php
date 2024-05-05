@@ -45,6 +45,7 @@ class FoodController extends Controller
 
     public function displayCartItem() {
 
+        if(auth()->user()) {
         // display cart items
         $cartItems = Cart::where('user_id', Auth::user()->id)->get();
 
@@ -55,7 +56,10 @@ class FoodController extends Controller
         return view('foods.cart', compact('cartItems', 'price'));
 
 
-    }   
+        } else {
+            abort('404');
+        }
+    }
      public function deleteCartItem($id) {
 
         // delete cart items
