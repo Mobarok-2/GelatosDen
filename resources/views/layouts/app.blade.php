@@ -103,7 +103,7 @@
  
 
         <!-- Navbar & Hero End -->
-        <main class="py-4">
+        <main class="">
             @yield('content')
         </main>
     </div>
