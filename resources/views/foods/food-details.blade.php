@@ -46,7 +46,7 @@
                             @csrf
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                             <input type="hidden" name="food_id" value="{{ $foodItem->id }}">
-                            <input type="hidden" name="name" value="{{ Auth::user()->name }}">
+                            <input type="hidden" name="name" value="{{ $foodItem->name }}">
                             <input type="hidden" name="image" value="{{ $foodItem->image }}">
                             <input type="hidden" name="price" value="{{ $foodItem->price }}">
                             
@@ -56,6 +56,7 @@
                                 <button type="submit" name="submit" class="btn btn-primary py-3 px-5 mt-2">Add to Cart</button>
                             @endif
                         </form>
+                    </div>
                     </div>
                 </div>
             </div>

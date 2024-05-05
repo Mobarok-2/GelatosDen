@@ -25,7 +25,7 @@ class FoodController extends Controller
         return view('foods.food-details', compact('foodItem', 'cartVerifing'));
 
 
-    } 
+    }    
        public function cart(Request $request, $id) {
 
         $cart = Cart::create([
@@ -43,4 +43,13 @@ class FoodController extends Controller
 
     }
 
+    public function displayCartItem() {
+
+        
+        $cartItems = Cart::where('user_id', Auth::user()->id)->get();
+
+        return view('foods.cart', compact('cartItems'));
+
+
+    } 
 }
