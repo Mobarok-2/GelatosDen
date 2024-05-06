@@ -164,8 +164,8 @@ class FoodController extends Controller
     }
 
     public function bookingTable(Request $request) {
-
-        $currentDate = date('m/d/y h:i:sa');
+        
+        $currentDate = date('m/d/Y h:i:sa');
 
         if($request->date < $currentDate OR $request->date == $currentDate) {
             return redirect()->route('home')->with([ 'error' => 'Invalid date' ]);
