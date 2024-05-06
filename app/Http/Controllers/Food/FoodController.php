@@ -185,5 +185,12 @@ class FoodController extends Controller
         }
         
     }
+    public function menu() {
+        $brownieItems = Food::select()->take(4)->where('category', 'brownie')->orderBy('id', 'desc')->get();
+        $iceCreamItems = Food::select()->take(4)->where('category', 'icecream')->orderBy('id', 'desc')->get();
+        $otherItems = Food::select()->take(4)->where('category', 'other')->orderBy('id', 'desc')->get();
+        
+        return view('foods.menu', compact('brownieItems', 'iceCreamItems', 'otherItems'));
+    }
 
 }
