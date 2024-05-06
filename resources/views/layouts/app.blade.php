@@ -61,7 +61,7 @@
                         <a href="{{ route('foods.menu') }}" class="nav-item nav-link">Menu</a>                       
 
                       
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="{{ route('contact') }}" class="nav-item nav-link">Contact</a>
                         <ul class="navbar-nav ms-auto">
                         @guest
                             @if (Route::has('login'))
