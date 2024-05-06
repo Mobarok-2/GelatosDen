@@ -35,4 +35,9 @@ class HomeController extends Controller
 
         return view('home', compact('brownieItems', 'iceCreamItems', 'otherItems', 'reviews'));
     }
+
+    public function about()
+    {
+        return view('pages.about');
+    }
 }
