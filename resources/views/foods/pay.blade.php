@@ -25,7 +25,7 @@
                             return actions.order.create({
                             purchase_units: [{
                                 amount: {
-                                value: '300' // Can also reference a variable or function
+                                value: '300' 
                                 }
                             }]
                             });
@@ -34,12 +34,12 @@
                         onApprove: (data, actions) => {
                             return actions.order.capture().then(function(orderData) {
                           
-                             window.location.href='http://127.0.0.1:8000/foods/cart';
+                             window.location.href='http://127.0.0.1:8000/foods/success';
                             });
                         }
                         }).render('#paypal-button-container');
                     </script>
                   
-                </div>
+    </div>
 
 @endsection

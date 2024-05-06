@@ -112,13 +112,26 @@ class FoodController extends Controller
             'price' => $request->price,
         ]);
         
-                if($checkout) {
-                    return redirect()->route('foods.pay');
-                }
+        if($checkout) {
+            return redirect()->route('foods.pay');
+        }
 
     }  
 
     public function payWithPaypal() {
         return view('foods.pay');
+    }
+
+    public function success() {
+
+        
+        // delete cart items
+        $deleteItem = Cart::where('user_id', Auth::user()->id);
+
+        $deleteItem->delete();
+
+        if($deleteItem) {
+            return view('foods.success')->with([ 'success' => 'Payment recived successfully' ]);
+        }
     }
 }

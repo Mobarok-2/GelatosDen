@@ -25,44 +25,44 @@
                     <div class="row g-3">
                         <div class="col-md-12">
                             <div class="form-floating">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
                                 <label for="name">Your Name</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="email" name="email" class="form-control" id="email" placeholder="Your Email">
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Your Email" required>
                                 <label for="email">Your Email</label>
                             </div>
                         </div>
                        
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" name="town" class="form-control" id="email" placeholder="Town">
+                                <input type="text" name="town" class="form-control" id="email" placeholder="Town" required>
                                 <label for="email">Town</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" name="country" class="form-control" id="email" placeholder="Country">
+                                <input type="text" name="country" class="form-control" id="email" placeholder="Country" required>
                                 <label for="text">Country</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" name="zipcode" Country class="form-control" id="email" placeholder="Zipcode">
+                                <input type="number" name="zipcode" Country class="form-control" id="email" placeholder="Zipcode" required>
                                 <label for="text">Zipcode</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-floating">
-                                <input type="text" name="phone_number" class="form-control" id="email" placeholder="Phone number">
+                                <input type="text" name="phone_number" class="form-control" id="email" placeholder="Phone number" required>
                                 <label for="text">Phone number</label>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
-                                <textarea class="form-control" name="address" placeholder="Address" id="message" style="height: 100px"></textarea>
+                                <textarea class="form-control" name="address" placeholder="Address" id="message" style="height: 100px" required></textarea>
                                 <label for="message">Address</label>
                             </div>
                         </div>
