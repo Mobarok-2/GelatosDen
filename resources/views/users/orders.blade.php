@@ -3,11 +3,11 @@
 @section('content')
 <div class="container-xxl py-5 bg-dark hero-header mb-5">
     <div class="container text-center my-5 pt-5 pb-4">
-        <h1 class="display-3 text-white mb-3 animated slideInDown">My Booking</h1>
+        <h1 class="display-3 text-white mb-3 animated slideInDown">My Orders</h1>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center text-uppercase">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">My Booking</a></li>
+                <li class="breadcrumb-item"><a href="#">My Orders</a></li>
             </ol>
         </nav>
     </div>
@@ -21,22 +21,25 @@
               <tr>
                   <th scope="col">Name</th>
                 <th scope="col">Email</th>
-                <th scope="col"> No Of Pepole</th>
-                <th scope="col"> Status</th>
-                <th scope="col">Date</th>
+                <th scope="col"> Town</th>
+                <th scope="col"> Phone</th>
+                <th scope="col"> Price</th>
+                <th scope="col">Status</th>
                 <th scope="col">Review</th>
               </tr>
             </thead>
             <tbody>
-                @if($allBookings->count() > 0)
-                    @foreach($allBookings as $booking)
+               @if($allOrders->count() > 0)
+                    @foreach($allOrders as $order)
                         <tr>
-                            <td>{{ $booking->name }}</td>
-                            <td>{{ $booking->email }}</td>
-                            <td>{{ $booking->num_pepole }}</td>
-                            <td>{{ $booking->status }}</td>
-                            <td>{{ $booking->date }}</td>
-                            @if($booking->status == 'Booked')
+                            <td>{{ $order->name }}</td>
+                            <td>{{ $order->email }}</td>
+                            <td>{{ $order->town }}</td>
+                            <td>{{ $order->phone_number }}</td>
+                            <td>${{ $order->price }}</td>
+                            <td>{{ $order->status }}</td>
+                            @if($order->status == 'Delivered')
+                            {{-- {{ route('review', $order->id) }} --}}
                              <td><a href="#" class="btn btn-success">Review</a></td>
                             @else 
                             <td class="text-danger">Not  Available</td>
@@ -44,8 +47,10 @@
                             @endif
                     @endforeach
                 @else
-                    <h3 class="alert alert-success">You Don't have any Bookings</h3>    
-                @endif    
+                    <h3 class="alert alert-success">You Don't have any Orders</h3>
+                @endif
+                    
+
             </tbody>
         </table>
          
