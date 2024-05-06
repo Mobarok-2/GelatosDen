@@ -12,6 +12,41 @@
         </nav>
     </div>
 </div>
+
+<div class="container">
+    
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+              <tr>
+                  <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col"> No Of Pepole</th>
+                <th scope="col"> Status</th>
+                <th scope="col">Date</th>
+                <th scope="col">Review</th>
+              </tr>
+            </thead>
+            <tbody>
+               
+                    @foreach($allBookings as $booking)
+                        <tr>
+                            <td>{{ $booking->name }}</td>
+                            <td>{{ $booking->email }}</td>
+                            <td>{{ $booking->num_pepole }}</td>
+                            <td>{{ $booking->status }}</td>
+                            <td>{{ $booking->date }}</td>
+                            @if($booking->status == 'Booked')
+                             <td><a href="#" class="btn btn-success">Review</a></td>
+                            @else 
+                            <td class="text-danger">Not  Available</td>
+                        </tr>
+                            @endif
+                    @endforeach
+            </tbody>
+        </table>
+         
+        </div>
 </div>
 
 @endsection

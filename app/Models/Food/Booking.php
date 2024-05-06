@@ -18,6 +18,8 @@ class Booking extends Model
         'date',
         'num_pepole',
         'spe_request',
+        'status',
+
     ];
 
     public $timestamps = true;
