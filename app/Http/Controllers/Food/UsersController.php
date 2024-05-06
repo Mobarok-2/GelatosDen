@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 Use App\Models\Food\Booking;
 Use App\Models\Food\Checkout;
+Use App\Models\Food\Review;
 Use Auth;
 
 class UsersController extends Controller
@@ -23,4 +24,32 @@ class UsersController extends Controller
 
         return view('users.orders', compact('allOrders'));
     }
+
+    public function viewReview()
+    {
+        return view('users.writereview');
+    }
+
+    public function submitReview(Request $request)
+    {
+        Request()->validate([
+            'name' => 'required',
+            'review' => 'required',
+        ]);
+        $submitReview = Review::create([
+            "name" => $request->name,
+            "review" => $request->review,
+        ]);
+
+        if($submitReview) {
+            return redirect()->route('users.review.create')->with([ 'success' => 'Review submitted Successfully' ]);
+        }
+
+        
+
+        
+    }
+
+    
+
 }

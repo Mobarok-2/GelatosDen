@@ -40,7 +40,7 @@
                             <td>{{ $order->status }}</td>
                             @if($order->status == 'Delivered')
                             {{-- {{ route('review', $order->id) }} --}}
-                             <td><a href="#" class="btn btn-success">Review</a></td>
+                             <td><a href="{{ route('users.review.create')}}" class="btn btn-success">Review</a></td>
                             @else 
                             <td class="text-danger">Not  Available</td>
                         </tr>

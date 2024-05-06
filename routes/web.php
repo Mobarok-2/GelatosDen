@@ -55,3 +55,7 @@ Route::get('users/all-bookings', [App\Http\Controllers\Food\UsersController::cla
 
 //orders
 Route::get('users/orders', [App\Http\Controllers\Food\UsersController::class, 'getOrders'])->name('users.orders');
+
+//reviews
+Route::get('users/write-review', [App\Http\Controllers\Food\UsersController::class, 'viewReview'])->name('users.review.create');
+Route::post('users/write-review', [App\Http\Controllers\Food\UsersController::class, 'submitReview'])->name('users.review.store');
