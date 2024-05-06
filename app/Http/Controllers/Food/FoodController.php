@@ -8,6 +8,8 @@ Use App\Models\Food\Food;
 Use App\Models\Food\Cart;
 Use Auth;
 Use Session;
+Use App\Models\Food\Checkout;
+
 class FoodController extends Controller
 {
     
@@ -27,22 +29,23 @@ class FoodController extends Controller
 
 
     }    
-       public function cart(Request $request, $id) {
 
-        $cart = Cart::create([
-            'user_id' =>  $request->user_id,
-            'food_id' => $request->food_id,
-            'name' => $request->name,
-            'image' => $request->image,
-            'price' => $request->price,
-        ]);
+    public function cart(Request $request, $id) {
 
-        if($cart) {
-            return redirect()->route('food.details', $id)->with([ 'success' => 'Item added to cart successfully' ]);
-        }
+    $cart = Cart::create([
+        'user_id' =>  $request->user_id,
+        'food_id' => $request->food_id,
+        'name' => $request->name,
+        'image' => $request->image,
+        'price' => $request->price,
+    ]);
 
-
+    if($cart) {
+        return redirect()->route('food.details', $id)->with([ 'success' => 'Item added to cart successfully' ]);
     }
+
+
+    } 
 
     public function displayCartItem() {
 
@@ -76,7 +79,7 @@ class FoodController extends Controller
     } 
 
     public function prepareCheckout(Request $request) {
-        
+
         $value = $request->price;
 
         $price = Session::put('price', $value);
@@ -84,7 +87,7 @@ class FoodController extends Controller
         $newPrice = Session::get('price');
 
             if($newPrice > 0) {
-                return redirect()->route('foods.checkout', compact('price'));
+                return redirect()->route('foods.checkout');
             }
     } 
 
@@ -92,5 +95,30 @@ class FoodController extends Controller
        
             return view('foods.checkout');
           
+    }
+
+
+    public function storeCheckout(Request $request) {
+
+        $checkout = Checkout::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'town' => $request->town,
+            'country' => $request->country,
+            'zipcode' => $request->zipcode,
+            'phone_number' => $request->phone_number,
+            'address' => $request->address,
+            'user_id' => Auth::user()->id,
+            'price' => $request->price,
+        ]);
+        
+                if($checkout) {
+                    return redirect()->route('foods.pay');
+                }
+
+    }  
+
+    public function payWithPaypal() {
+        return view('foods.pay');
     }
 }

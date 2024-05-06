@@ -28,6 +28,12 @@ Route::post('foods/food-details/{id}', [App\Http\Controllers\Food\FoodController
 Route::get('foods/cart', [App\Http\Controllers\Food\FoodController::class, 'displayCartItem'])->name('food.display.cart');
 Route::get('foods/delete-cart/{id}', [App\Http\Controllers\Food\FoodController::class, 'deleteCartItem'])->name('food.delete.cart');
 
+// checkout
 Route::post('foods/prepare-checkout', [App\Http\Controllers\Food\FoodController::class, 'prepareCheckout'])->name('prepare.checkout');
 
+// insert user info
 Route::get('foods/checkout', [App\Http\Controllers\Food\FoodController::class, 'checkout'])->name('foods.checkout');
+Route::post('foods/checkout', [App\Http\Controllers\Food\FoodController::class, 'storeCheckout'])->name('foods.checkout.store');
+
+//payment
+Route::get('foods/pay', [App\Http\Controllers\Food\FoodController::class, 'payWithPaypal'])->name('foods.pay');
