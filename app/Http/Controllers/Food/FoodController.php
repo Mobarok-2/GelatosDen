@@ -9,6 +9,7 @@ Use App\Models\Food\Cart;
 Use Auth;
 Use Session;
 Use App\Models\Food\Checkout;
+Use App\Models\Food\Booking;
 
 class FoodController extends Controller
 {
@@ -154,11 +155,36 @@ class FoodController extends Controller
             }else {
 
                 Session::forget('price');
-                
+
                 return view('foods.success')->with([ 'success' => 'Payment recived successfully' ]);
             }
            
         }
         
     }
+
+
+    public function bookingTable(Request $request) {
+
+        $currentDate = date('m/d/y h:i:sa');
+
+        if($request->date < $currentDate OR $request->date == $currentDate) {
+            return redirect()->route('home')->with([ 'error' => 'Invalid date' ]);
+        } else {
+            $bookingTables = Booking::create([
+                'user_id' => Auth::user()->id,
+                'name' => $request->name,
+                'email' => $request->email,
+                'date' => $request->date,
+                'num_pepole' => $request->num_pepole,
+                'spe_request' => $request->spe_request,
+            ]);
+
+            if($bookingTables) {
+                return redirect()->route('home')->with([ 'booked' => 'Table booked Successfully' ]);
+            }
+        }
+        
+    }
+
 }
