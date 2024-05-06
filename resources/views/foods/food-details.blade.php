@@ -42,24 +42,27 @@
                             </div>
                            
                         </div>
-                        <form method="post" action="{{ route('food.cart', $foodItem->id)}}">
-                            @csrf
-                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                            <input type="hidden" name="food_id" value="{{ $foodItem->id }}">
-                            <input type="hidden" name="name" value="{{ $foodItem->name }}">
-                            <input type="hidden" name="image" value="{{ $foodItem->image }}">
-                            <input type="hidden" name="price" value="{{ $foodItem->price }}">
-                            
-                            @if($cartVerifing > 0) 
-                                <button class="btn btn-primary py-3 px-5 mt-2" disabled>Already in Cart</button>
-                            @else
-                                <button type="submit" name="submit" class="btn btn-primary py-3 px-5 mt-2">Add to Cart</button>
-                            @endif
-                        </form>
+                        @auth 
+                            <form method="post" action="{{ route('food.cart', $foodItem->id)}}">
+                                @csrf
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                <input type="hidden" name="food_id" value="{{ $foodItem->id }}">
+                                <input type="hidden" name="name" value="{{ $foodItem->name }}">
+                                <input type="hidden" name="image" value="{{ $foodItem->image }}">
+                                <input type="hidden" name="price" value="{{ $foodItem->price }}">
+                                
+                                @if($cartVerifing > 0) 
+                                    <button class="btn btn-primary py-3 px-5 mt-2" disabled>Already in Cart</button>
+                                @else
+                                    <button type="submit" name="submit" class="btn btn-primary py-3 px-5 mt-2">Add to Cart</button>
+                                @endif
+                            </form>
+                        @else
+                        <p class="alert alert-success">You Need To Login for, <b>Adding Item To Cart</b></p>
+                        @endif
                     </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 @endsection

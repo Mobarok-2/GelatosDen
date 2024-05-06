@@ -21,16 +21,21 @@ class FoodController extends Controller
 
         $foodItem = Food::find($id);
 
-        //verify if food item exists
-        
+        //verify if food item exists in cart
+        if(auth()->user()) {
+
         $cartVerifing = Cart::where('food_id', $id)
         ->where('user_id', Auth::user()->id)->count();
 
         return view('foods.food-details', compact('foodItem', 'cartVerifing'));
 
 
-    }    
+        } else {
+            return view('foods.food-details', compact('foodItem'));
+        }   
+    }
 
+    
     public function cart(Request $request, $id) {
 
     $cart = Cart::create([
