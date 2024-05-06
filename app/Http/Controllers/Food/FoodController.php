@@ -163,7 +163,6 @@ class FoodController extends Controller
         
     }
 
-
     public function bookingTable(Request $request) {
 
         $currentDate = date('m/d/y h:i:sa');
