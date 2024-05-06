@@ -25,7 +25,7 @@
                             return actions.order.create({
                             purchase_units: [{
                                 amount: {
-                                value: '300' 
+                                value: '300'    // '{{ Session::get('price') }}'
                                 }
                             }]
                             });

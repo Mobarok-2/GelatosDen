@@ -42,4 +42,4 @@ Route::post('foods/checkout', [App\Http\Controllers\Food\FoodController::class, 
 Route::get('foods/pay', [App\Http\Controllers\Food\FoodController::class, 'payWithPaypal'])->name('foods.pay');
 
 //payment success
-// Route::get('foods/success', [App\Http\Controllers\Food\FoodController::class, 'success'])->name('foods.success');
+Route::get('foods/success', [App\Http\Controllers\Food\FoodController::class, 'success'])->name('foods.success');

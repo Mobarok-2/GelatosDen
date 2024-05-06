@@ -87,17 +87,22 @@ class FoodController extends Controller
         $newPrice = Session::get('price');
 
             if($newPrice > 0) {
-                return redirect()->route('foods.checkout');
-            }
+                if(Session::get('price') == 0) {
+                    abort('403');
+                 } else {
+                    return redirect()->route('foods.checkout');
+                 }
+             }
     } 
 
     public function checkout() {
-       
+        if(Session::get('price') == 0) {
+            abort('403');
+         } else {
             return view('foods.checkout');
-          
+          }
+
     }
-
-
     public function storeCheckout(Request $request) {
 
         $checkout = Checkout::create([
@@ -113,13 +118,23 @@ class FoodController extends Controller
         ]);
         
         if($checkout) {
+
+            if(Session::get('price') == 0) {
+                abort('403');
+             } else {
+
             return redirect()->route('foods.pay');
         }
 
-    }  
-
+            }  
+    }
     public function payWithPaypal() {
+        if(Session::get('price') == 0) {
+            abort('403');
+         } else {
         return view('foods.pay');
+
+        }
     }
 
     public function success() {
@@ -130,8 +145,20 @@ class FoodController extends Controller
 
         $deleteItem->delete();
 
+        
+
         if($deleteItem) {
-            return view('foods.success')->with([ 'success' => 'Payment recived successfully' ]);
+
+            if(Session::get('price') == 0) {
+               abort('404');
+            }else {
+
+                Session::forget('price');
+                
+                return view('foods.success')->with([ 'success' => 'Payment recived successfully' ]);
+            }
+           
         }
+        
     }
 }
