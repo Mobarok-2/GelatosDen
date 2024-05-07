@@ -8,6 +8,7 @@ use App\Models\Food\Food;
 use App\Models\Food\Checkout;
 use App\Models\Food\Booking;
 use App\Models\Admin\Admin;
+use Illuminate\Support\Facades\Hash;
 
 class AdminsController extends Controller
 {
@@ -48,4 +49,33 @@ class AdminsController extends Controller
         $admins = Admin::select()->orderBy('id', 'desc')->get();
         return view('admins.alladmins', compact('admins'));
     }    
+    public function createAdmin()
+    {
+        return view('admins.createAdmin');
+    }
+
+    public function storeAdmin(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        $admins = Admin::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        if ($admins) {
+            return redirect()->route('admins.all')->with(['success' => 'Admin created successfully']);
+        }
+    }
+
+    public function allOrders()
+    {
+        $orders = Checkout::select()->orderBy('id', 'desc')->get();
+        return view('admins.allorders', compact('orders'));
+    }
 }

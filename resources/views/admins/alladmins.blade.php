@@ -6,8 +6,16 @@
     <div class="col">
       <div class="card">
         <div class="card-body">
+
+          <div class="container">
+            @if(Session::has('success'))
+                <p class="alert {{ Session::get('alert-class', 'alert-success') }}">{{ Session::get('success') }}</p>
+            @endif
+        </div>
+        
+
           <h5 class="card-title mb-4 d-inline">Admins</h5>
-         <a  href="create-admins.html" class="btn btn-primary mb-4 text-center float-right">Create Admins</a>
+         <a  href="{{ route('admins.create') }}" class="btn btn-primary mb-4 text-center float-right">Create Admins</a>
           <table class="table">
             <thead>
               <tr>

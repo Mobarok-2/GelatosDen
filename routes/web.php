@@ -73,7 +73,16 @@ Route::post('admin/login', [App\Http\Controllers\Admins\AdminsController::class,
 Route::group(["prefix" => "admin", "middleware" => "auth:admin"], function() {
  
 //admin dashboard    
-Route::get('/index', [App\Http\Controllers\Admins\AdminsController::class, 'adminIndex'])->name('admin.dashboard');
+Route::get('index', [App\Http\Controllers\Admins\AdminsController::class, 'adminIndex'])->name('admin.dashboard');
 //admins 
 Route::get('all-admins', [App\Http\Controllers\Admins\AdminsController::class, 'allAdmins'])->name('admins.all');
+//link for create admins
+Route::get('createAdmin', [App\Http\Controllers\Admins\AdminsController::class, 'createAdmin'])->name('admins.create');
+
+//creating a new admin
+Route::post('createAdmin', [App\Http\Controllers\Admins\AdminsController::class, 'storeAdmin'])->name('admins.store');
+
+//link for viewing orders
+Route::get('allOrders', [App\Http\Controllers\Admins\AdminsController::class, 'allOrders'])->name('orders.all');
+
 });
