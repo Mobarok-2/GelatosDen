@@ -7,6 +7,13 @@
     <div class="col">
       <div class="card">
         <div class="card-body">
+
+          <div class="container">
+            @if(Session::has('success'))
+                <p class="alert {{ Session::get('alert-class', 'alert-success') }}">{{ Session::get('success') }}</p>
+            @endif
+           </div>
+
           <h5 class="card-title mb-4 d-inline">Orders</h5>
         
           <table class="table">
@@ -28,20 +35,20 @@
               @foreach($orders as $order)
                 <tr>
                     <th scope="row">{{$order->id}}</th>
-                    <td>{{$order->name}}</td>
-                    <td>{{$order->email}}</td>
-                    <td>{{$order->town}}</td>
-                    <td>{{$order->phone_number}}</td>
-                    <td>{{$order->address}}</td>
-                    <td>${{$order->price}}</td>
-                    <td>{{$order->status}}</td>
-                    {{-- {{route('orders.delete', ['id' => $order->id])}} --}}
-                    <td><a href="#" class="btn btn-warning  text-center ">Change</a></td>
-                    <td><a href="#" class="btn btn-danger  text-center ">Delete</a></td>
+                    <td><small>{{$order->name}}</small> </td>
+                    <td><small>{{$order->email}}</small></td>
+                    <td><small>{{$order->town}}</small></td>
+                    <td><small>{{$order->phone_number}}</small></td>
+                    <td><small>{{$order->address}}</small></td>
+                    <td><small>${{$order->price}}</small></td>
+                    <td><small>{{$order->status}}</small></td>
+                    <td><small><a href="{{route('orders.edit', $order->id)}}" class="btn btn-warning  text-center ">Change</a></small></td>
+                    <td><small><a href="#" class="btn btn-danger  text-center ">Delete</a></small></td>
               @endforeach  
             </tbody>
           </table> 
         </div>
       </div>
     </div>
-  </div>@endsection
+  </div>
+  @endsection

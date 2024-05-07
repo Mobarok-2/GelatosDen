@@ -78,4 +78,25 @@ class AdminsController extends Controller
         $orders = Checkout::select()->orderBy('id', 'desc')->get();
         return view('admins.allorders', compact('orders'));
     }
+
+    public function editOrder($id)
+    {
+        $order = Checkout::find($id);
+        return view('admins.editorder', compact('order'));
+    }
+    
+    public function updateOrders(Request $request, $id)
+    {
+        $request->validate([
+            'status' => 'required',
+        ]);
+        
+        $order = Checkout::find($id);
+        $order->update($request->all());
+
+        if($order) {
+            return redirect()->route('orders.all')->with(['success' => 'Order updated successfully']);
+        }
+    }
+
 }

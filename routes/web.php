@@ -84,5 +84,8 @@ Route::post('createAdmin', [App\Http\Controllers\Admins\AdminsController::class,
 
 //link for viewing orders
 Route::get('allOrders', [App\Http\Controllers\Admins\AdminsController::class, 'allOrders'])->name('orders.all');
-
+//edit order
+Route::get('editOrder/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'editOrder'])->name('orders.edit');
+//update order
+Route::post('editOrder/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'updateOrders'])->name('orders.update');
 });
