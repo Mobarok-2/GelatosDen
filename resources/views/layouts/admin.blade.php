@@ -61,8 +61,7 @@
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
-                </form>
-              
+                </form>              
           </li>
         @else
 
@@ -76,7 +75,6 @@
     </div>
     </nav>
     <div class="container-fluid">
-
 
         <main class="">
             @yield('content')

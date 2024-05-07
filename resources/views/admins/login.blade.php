@@ -14,7 +14,6 @@
                 <input type="email" name="email" id="form2Example1" class="form-control" placeholder="Email" required/>
                
               </div>
-
               
               <!-- Password input -->
               <div class="form-outline mb-4">
