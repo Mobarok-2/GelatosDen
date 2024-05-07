@@ -68,7 +68,12 @@ Route::post('users/write-review', [App\Http\Controllers\Food\UsersController::cl
 Route::get('admin/login', [App\Http\Controllers\Admins\AdminsController::class, 'viewLogin'])->name('view.login')->middleware('checkforauth');
 Route::post('admin/login', [App\Http\Controllers\Admins\AdminsController::class, 'checkLogin'])->name('check.login');
 
+
+
 Route::group(["prefix" => "admin", "middleware" => "auth:admin"], function() {
-   
-Route::get('admin/index', [App\Http\Controllers\Admins\AdminsController::class, 'adminIndex'])->name('admin.dashboard');
+ 
+//admin dashboard    
+Route::get('/index', [App\Http\Controllers\Admins\AdminsController::class, 'adminIndex'])->name('admin.dashboard');
+//admins 
+Route::get('all-admins', [App\Http\Controllers\Admins\AdminsController::class, 'allAdmins'])->name('admins.all');
 });

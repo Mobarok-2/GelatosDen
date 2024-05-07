@@ -42,4 +42,10 @@ class AdminsController extends Controller
 
         return view('admins.index', compact('foodCount', 'orderCount', 'bookingCount', 'adminCount'));
     }
+
+    public function allAdmins()
+    {
+        $admins = Admin::select()->orderBy('id', 'desc')->get();
+        return view('admins.alladmins', compact('admins'));
+    }    
 }
