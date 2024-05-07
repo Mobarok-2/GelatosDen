@@ -93,4 +93,10 @@ Route::get('deleteOrder/{id}', [App\Http\Controllers\Admins\AdminsController::cl
 
 //bookings
 Route::get('allBookings', [App\Http\Controllers\Admins\AdminsController::class, 'allBookings'])->name('bookings.all');
+//Change booking
+Route::get('editBooking/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'editBooking'])->name('bookings.edit');
+//update booking
+Route::post('editBooking/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'updateBooking'])->name('bookings.update');
+//delete booking
+Route::get('deleteBooking/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'deleteBookings'])->name('bookings.delete');
 });

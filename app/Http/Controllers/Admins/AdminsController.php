@@ -85,6 +85,7 @@ class AdminsController extends Controller
         return view('admins.editorder', compact('order'));
     }
     
+    //edit orders
     public function updateOrders(Request $request, $id)
     {
         $request->validate([
@@ -116,5 +117,34 @@ class AdminsController extends Controller
         return view('admins.allbookings', compact('bookings'));
     }
 
-   
+    //edit bookings
+    public function editBooking($id)
+    {
+        $booking = Booking::find($id);
+        return view('admins.editbooking', compact('booking'));
+    }
+
+    public function updateBooking(Request $request, $id)
+    {
+        $request->validate([
+            'status' => 'required',
+        ]);
+        
+        $booking = Booking::find($id);
+        $booking->update($request->all());
+
+        if($booking) {
+            return redirect()->route('bookings.all')->with(['update' => 'Booking updated successfully']);
+        }
+    }
+
+    public function deleteBookings($id)
+    {
+        $booking = Booking::find($id);
+        $booking->delete();
+
+        if($booking) {
+            return redirect()->route('bookings.all')->with(['delete' => 'Booking deleted successfully']);
+        }
+    }
 }
