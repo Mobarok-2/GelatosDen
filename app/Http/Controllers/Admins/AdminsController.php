@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admins;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Food\Food;
+use App\Models\Food\Checkout;
+use App\Models\Food\Booking;
+use App\Models\Admin\Admin;
 
 class AdminsController extends Controller
 {
@@ -30,6 +34,12 @@ class AdminsController extends Controller
 
     public function adminIndex()
     {
-        return view('admins.index');
+        //food count
+        $foodCount = Food::select()->count();
+        $orderCount = Checkout::select()->count();
+        $bookingCount = Booking::select()->count();
+        $adminCount = Admin::select()->count();
+
+        return view('admins.index', compact('foodCount', 'orderCount', 'bookingCount', 'adminCount'));
     }
 }
