@@ -99,4 +99,10 @@ Route::get('editBooking/{id}', [App\Http\Controllers\Admins\AdminsController::cl
 Route::post('editBooking/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'updateBooking'])->name('bookings.update');
 //delete booking
 Route::get('deleteBooking/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'deleteBookings'])->name('bookings.delete');
+
+
+//foods items
+Route::get('allFoods', [App\Http\Controllers\Admins\AdminsController::class, 'allFoods'])->name('foods.all');
+//create food
+Route::get('createFood', [App\Http\Controllers\Admins\AdminsController::class, 'createFood'])->name('foods.create');
 });

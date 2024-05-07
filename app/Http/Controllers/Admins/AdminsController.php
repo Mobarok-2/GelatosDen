@@ -147,4 +147,15 @@ class AdminsController extends Controller
             return redirect()->route('bookings.all')->with(['delete' => 'Booking deleted successfully']);
         }
     }
+        
+    public function allFoods()
+    {
+        $foods = Food::select()->orderBy('id', 'desc')->get();
+        return view('admins.allfoods', compact('foods'));
+    }
+
+    public function createFood()
+    {
+        return view('admins.createfood');
+    }
 }
