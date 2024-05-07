@@ -2,18 +2,18 @@
 
 @section('content')
 
- 
-  
-  {{-- <div class="container">
-    @if(Session::has('success'))
-        <p class="alert {{ Session::get('alert-class', 'alert-success') }}">{{ Session::get('success') }}</p>
-    @endif
-    </div> --}}
 
   <div class="row">
     <div class="col">
       <div class="card">
         <div class="card-body">
+
+            <div class="container">
+                @if(Session::has('success'))
+                    <p class="alert {{ Session::get('alert-class', 'alert-success') }}">{{ Session::get('success') }}</p>
+                @endif
+                </div> 
+
             <div class="container">
                 @if(Session::has('delete'))
                     <p class="alert {{ Session::get('alert-class', 'alert-success') }}">{{ Session::get('delete') }}</p>

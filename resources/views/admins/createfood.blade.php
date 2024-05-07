@@ -7,8 +7,8 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title mb-5 d-inline">Create Food Items</h5>
-      <form method="POST" action="{{ route('foods.create') }}" enctype="multipart/form-data">
-            <!-- Email input -->
+      <form method="POST" action="{{ route('foods.store') }}" enctype="multipart/form-data">
+        @csrf
             <div class="form-outline mb-4 mt-4">
               <input type="text" name="name" id="form2Example1" class="form-control" placeholder="name" />
              
@@ -23,12 +23,12 @@
             </div>
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Description</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
            
             <div class="form-outline mb-4 mt-4">
 
-              <select name="price" class="form-select  form-control" aria-label="Default select example">
+              <select name="category" class="form-select  form-control" aria-label="Default select example">
                 <option selected>Choose Category</option>
                 <option value="brownie">Brownie</option>
                 <option value="icecream">Icecream</option>

@@ -158,4 +158,33 @@ class AdminsController extends Controller
     {
         return view('admins.createfood');
     }
+
+    public function storeFood(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required',
+            'description' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'category' => 'required',
+            
+        ]);
+
+        $destinationPath = 'assets/img/';
+        $myimage = $request->image->getClientOriginalName();
+        $request->image->move(public_path($destinationPath), $myimage);
+
+        $foods = Food::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'description' => $request->description,
+            'image' => $myimage,
+            'category' => $request->category,
+            
+        ]);
+
+        if ($foods) {
+            return redirect()->route('foods.all')->with(['success' => 'Food Item created successfully']);
+        }
+    }
 }

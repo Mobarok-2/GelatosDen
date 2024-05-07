@@ -105,4 +105,6 @@ Route::get('deleteBooking/{id}', [App\Http\Controllers\Admins\AdminsController::
 Route::get('allFoods', [App\Http\Controllers\Admins\AdminsController::class, 'allFoods'])->name('foods.all');
 //create food
 Route::get('createFood', [App\Http\Controllers\Admins\AdminsController::class, 'createFood'])->name('foods.create');
+//store food
+Route::post('createFood', [App\Http\Controllers\Admins\AdminsController::class, 'storeFood'])->name('foods.store');
 });
