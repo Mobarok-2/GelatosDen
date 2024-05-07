@@ -20,7 +20,7 @@
                 @endif
             </div>
           <h5 class="card-title mb-4 d-inline">Foods</h5>
-          <a  href="create-foods.html" class="btn btn-primary mb-4 text-center float-right">Create Foods</a>
+          <a  href="{{ route('foods.create') }}" class="btn btn-primary mb-4 text-center float-right">Create Foods</a>
 
           <table class="table">
             <thead>
