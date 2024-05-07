@@ -88,4 +88,7 @@ Route::get('allOrders', [App\Http\Controllers\Admins\AdminsController::class, 'a
 Route::get('editOrder/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'editOrder'])->name('orders.edit');
 //update order
 Route::post('editOrder/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'updateOrders'])->name('orders.update');
+
+//bookings
+Route::get('allBookings', [App\Http\Controllers\Admins\AdminsController::class, 'allBookings'])->name('bookings.all');
 });

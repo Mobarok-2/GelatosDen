@@ -99,4 +99,10 @@ class AdminsController extends Controller
         }
     }
 
+    public function allBookings()
+    {
+        $bookings = Booking::select()->orderBy('id', 'desc')->get();
+        return view('admins.allbookings', compact('bookings'));
+    }
+
 }

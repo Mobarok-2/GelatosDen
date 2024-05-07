@@ -38,7 +38,7 @@
             <a class="nav-link" href="foods-admins/show-foods.html" style="margin-left: 20px;">Foods</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="bookings-admins/show-bookings.html" style="margin-left: 20px;">Bookings</a>
+            <a class="nav-link" href="{{ route('bookings.all') }}" style="margin-left: 20px;">Bookings</a>
           </li>
         </ul>
         @endauth
