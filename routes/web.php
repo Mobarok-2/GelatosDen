@@ -66,3 +66,5 @@ Route::post('users/write-review', [App\Http\Controllers\Food\UsersController::cl
 
 //admin
 Route::get('admin/login', [App\Http\Controllers\Admins\AdminsController::class, 'viewLogin'])->name('view.login');
+Route::post('admin/login', [App\Http\Controllers\Admins\AdminsController::class, 'checkLogin'])->name('check.login');
+Route::get('admin/index', [App\Http\Controllers\Admins\AdminsController::class, 'adminIndex'])->name('admin.dashboard');
