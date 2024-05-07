@@ -13,6 +13,11 @@
                 <p class="alert {{ Session::get('alert-class', 'alert-success') }}">{{ Session::get('success') }}</p>
             @endif
            </div>
+           <div class="container">
+            @if(Session::has('delete'))
+                <p class="alert {{ Session::get('alert-class', 'alert-success') }}">{{ Session::get('delete') }}</p>
+            @endif
+           </div>
 
           <h5 class="card-title mb-4 d-inline">Orders</h5>
         
@@ -43,7 +48,7 @@
                     <td><small>${{$order->price}}</small></td>
                     <td><small>{{$order->status}}</small></td>
                     <td><small><a href="{{route('orders.edit', $order->id)}}" class="btn btn-warning  text-center ">Change</a></small></td>
-                    <td><small><a href="#" class="btn btn-danger  text-center ">Delete</a></small></td>
+                    <td><small><a href="{{route('orders.delete', $order->id)}}" class="btn btn-danger  text-center ">Delete</a></small></td>
               @endforeach  
             </tbody>
           </table> 

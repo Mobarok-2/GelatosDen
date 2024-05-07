@@ -99,10 +99,22 @@ class AdminsController extends Controller
         }
     }
 
+
+    public function deleteOrder($id)
+    {
+        $order = Checkout::find($id);
+        $order->delete();
+
+        if($order) {
+            return redirect()->route('orders.all')->with(['delete' => 'Order deleted successfully']);
+        }
+    }
+
     public function allBookings()
     {
         $bookings = Booking::select()->orderBy('id', 'desc')->get();
         return view('admins.allbookings', compact('bookings'));
     }
 
+   
 }
