@@ -63,3 +63,6 @@ Route::get('users/orders', [App\Http\Controllers\Food\UsersController::class, 'g
 //reviews
 Route::get('users/write-review', [App\Http\Controllers\Food\UsersController::class, 'viewReview'])->name('users.review.create');
 Route::post('users/write-review', [App\Http\Controllers\Food\UsersController::class, 'submitReview'])->name('users.review.store');
+
+//admin
+Route::get('admin/login', [App\Http\Controllers\Admins\AdminsController::class, 'viewLogin'])->name('view.login');

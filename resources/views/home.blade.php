@@ -319,7 +319,7 @@
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h5 class="section-title ff-secondary text-center text-primary fw-normal">Team Members</h5>
-                    <h1 class="mb-5">Our Member</h1>
+                    <h1 class="mb-5">Our Team Member</h1>
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -327,8 +327,8 @@
                             <div class="rounded-circle overflow-hidden m-4">
                                 <img class="img-fluid" src="{{ asset('assets/img/team-1.jpg') }}" alt="">
                             </div>
-                            <h5 class="mb-0">Jhon Ley</h5>
-                            <small>Head Of Delivery</small>
+                            <h5 class="mb-0">Shreya Gosh</h5>
+                            <small>Founder</small>
                             <div class="d-flex justify-content-center mt-3">
                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
@@ -341,7 +341,7 @@
                             <div class="rounded-circle overflow-hidden m-4">
                                 <img class="img-fluid" src="{{ asset('assets/img/team-2.jpg') }}" alt="">
                             </div>
-                            <h5 class="mb-0"> Jhon Cena </h5>
+                            <h5 class="mb-0"> Shuvon Paul </h5>
                             <small>Technical Supporter</small>
                             <div class="d-flex justify-content-center mt-3">
                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
@@ -355,8 +355,8 @@
                             <div class="rounded-circle overflow-hidden m-4">
                                 <img class="img-fluid" src="{{ asset('assets/img/team-3.jpg') }}" alt="">
                             </div>
-                            <h5 class="mb-0">Andrew Tate</h5>
-                            <small>Supply Chain</small>
+                            <h5 class="mb-0">Seikh Morsalin</h5>
+                            <small>Assistant Technical Supporter</small>
                             <div class="d-flex justify-content-center mt-3">
                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
@@ -369,8 +369,8 @@
                             <div class="rounded-circle overflow-hidden m-4">
                                 <img class="img-fluid" src="{{ asset('assets/img/team-4.jpg') }}" alt="">
                             </div>
-                            <h5 class="mb-0">Rodyrigo</h5>
-                            <small>Assistan Supporter</small>
+                            <h5 class="mb-0">Mobarok Hossen</h5>
+                            <small>Delivery Supporter</small>
                             <div class="d-flex justify-content-center mt-3">
                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
